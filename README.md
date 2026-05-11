@@ -12,12 +12,12 @@ Predecir qué clientes tienen mayor probabilidad de cancelar su servicio para qu
 .
 ├── Segunda_Tarea_Acumulativa_EA2.ipynb   # Notebook principal con todo el análisis
 ├── Telco-Customer-Churn.csv              # Dataset (7,043 clientes, 21 variables)
-├── index.html                            # Dashboard ejecutivo (KPIs + 4 gráficos)
+├── index.html                            # Dashboard autocontenido (~62 KB) listo para GitHub Pages
 ├── .gitignore
 └── README.md
 ```
 
-Los archivos `dashboard_fig1...4.html` (gráficos Plotly que consume `index.html`) **no están versionados** porque son artefactos generados; se reconstruyen ejecutando el notebook.
+El archivo `index.html` es **autocontenido**: los 4 gráficos Plotly están embebidos como `<div>` directamente en el HTML, y `plotly.js` se carga desde un CDN. No hay archivos satélite. Se regenera al ejecutar el notebook.
 
 ## Pipeline de análisis (en el notebook)
 
@@ -54,9 +54,9 @@ Instalación rápida:
 pip install pandas numpy scikit-learn matplotlib seaborn plotly imbalanced-learn colorama nbconvert jupyter
 ```
 
-## Cómo regenerar los gráficos del dashboard
+## Cómo regenerar el dashboard
 
-Los 4 HTML del dashboard se crean al ejecutar la última celda del notebook. La forma más simple es ejecutar el notebook completo:
+Ejecuta el notebook completo: la última celda construye `index.html` automáticamente con los KPIs y gráficos actualizados.
 
 ```bash
 python -m nbconvert --to notebook --execute "Segunda_Tarea_Acumulativa_EA2.ipynb" \
@@ -64,22 +64,21 @@ python -m nbconvert --to notebook --execute "Segunda_Tarea_Acumulativa_EA2.ipynb
        --ExecutePreprocessor.timeout=600
 ```
 
-Se generarán:
-
-- `dashboard_fig1_importancia.html`
-- `dashboard_fig2_ahorro.html`
-- `dashboard_fig3_probabilidades.html`
-- `dashboard_fig4_confusion.html`
-
 ## Cómo ver el dashboard
 
-> ⚠️ **No abras `index.html` con doble clic**. Los navegadores bloquean por seguridad la carga de `iframe` con archivos locales (`file://`). Usa un servidor local:
+Como el HTML es autocontenido y solo consume Plotly desde un CDN, puedes:
+
+**Opción A — Abrirlo localmente con doble clic.** Funciona en cualquier navegador moderno con conexión a internet (para cargar Plotly desde el CDN).
+
+**Opción B — Servidor local** (recomendado para desarrollo):
 
 ```bash
 python -m http.server 8000
 ```
 
-Y abre [http://localhost:8000/index.html](http://localhost:8000/index.html).
+Abre [http://localhost:8000/index.html](http://localhost:8000/index.html).
+
+**Opción C — GitHub Pages.** En el repo: *Settings → Pages → Branch: `main` / `(root)` → Save*. En unos segundos estará público en `https://andrenany.github.io/Predicci-n-de-Churn/`.
 
 ## Dataset
 

@@ -1,8 +1,5 @@
-# Dashboards HTML generados por el notebook (regenerables con nbconvert)
-dashboard_fig1_importancia.html
-dashboard_fig2_ahorro.html
-dashboard_fig3_probabilidades.html
-dashboard_fig4_confusion.html
+# Nota: index.html SI se versiona (autocontenido, listo para GitHub Pages).
+# Se regenera ejecutando el notebook con los datos frescos.
 
 # Python
 __pycache__/
