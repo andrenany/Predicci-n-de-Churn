@@ -1,0 +1,35 @@
+# Dashboards HTML generados por el notebook (regenerables con nbconvert)
+dashboard_fig1_importancia.html
+dashboard_fig2_ahorro.html
+dashboard_fig3_probabilidades.html
+dashboard_fig4_confusion.html
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Jupyter Lab / Notebook
+.jupyter/
+*.nbconvert.ipynb
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs / temporales
+*.log
+*.tmp

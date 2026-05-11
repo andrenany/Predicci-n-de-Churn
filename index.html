@@ -1,0 +1,118 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Churn - Telecomunicaciones</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .kpi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .kpi-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .kpi-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .kpi-label {
+            color: #666;
+            margin-top: 10px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+        }
+        .chart-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📡 Dashboard de Predicción de Churn</h1>
+        <p>Telecomunicaciones - Análisis de Fuga de Clientes</p>
+    </div>
+
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <div class="kpi-value" id="churn-rate">26.5%</div>
+            <div class="kpi-label">Tasa de Churn</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="savings">$25,950</div>
+            <div class="kpi-label">Ahorro Potencial (vs modelo ingenuo)</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="risk-customers">3,140</div>
+            <div class="kpi-label">Clientes en Riesgo Detectados</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" id="best-model" style="font-size:22px;">Decision Tree (SMOTE)</div>
+            <div class="kpi-label">Mejor Modelo</div>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="chart-card">
+            <h3>📊 Factores que más influyen en el Churn</h3>
+            <iframe src="dashboard_fig1_importancia.html" loading="lazy" title="Importancia de variables"></iframe>
+        </div>
+        <div class="chart-card">
+            <h3>💰 Comparación de Modelos (Ahorro)</h3>
+            <iframe src="dashboard_fig2_ahorro.html" loading="lazy" title="Ahorro por modelo"></iframe>
+        </div>
+        <div class="chart-card">
+            <h3>🎯 Distribución de Probabilidades</h3>
+            <iframe src="dashboard_fig3_probabilidades.html" loading="lazy" title="Distribución de probabilidades"></iframe>
+        </div>
+        <div class="chart-card">
+            <h3>✅ Matriz de Confusión - Mejor Modelo</h3>
+            <iframe src="dashboard_fig4_confusion.html" loading="lazy" title="Matriz de confusión"></iframe>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>📅 Análisis realizado con Python, Scikit-learn y Plotly | Datos: Telco Customer Churn</p>
+        <p>🔗 <a href="https://github.com/tu-usuario/tu-repo">Ver código fuente en GitHub</a></p>
+    </div>
+</body>
+</html>
